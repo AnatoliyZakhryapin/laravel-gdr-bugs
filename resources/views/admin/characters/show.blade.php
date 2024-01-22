@@ -24,7 +24,7 @@
                     <p class="card-text">Descrizione Classe: {{ $character->type->description }}</p>                    
                 @endif
                 <button class="btn btn-sm btn-warning">
-                    <a class="text-decoration-none text-white" href="{{ route('characters.edit', $character->id) }}">Modifica</a>
+                    <a class="text-decoration-none text-white" href="{{ route('admin.characters.edit', $character->id) }}">Modifica</a>
                 </button>
                 <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#modal-{{$character->id}}">
                     Elimina
@@ -44,7 +44,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Annulla</button>
-                        <form action="{{route('characters.destroy', $character->id)}}" method="POST">
+                        <form action="{{route('admin.characters.destroy', $character->id)}}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Elimina</button>

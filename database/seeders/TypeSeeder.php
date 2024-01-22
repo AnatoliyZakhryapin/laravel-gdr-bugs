@@ -21,7 +21,7 @@ class TypeSeeder extends Seeder
             $new_type = new Type();
 
             $new_type->name = $type_name;
-            $new_type->description = $faker->paragraph();
+            $new_type->description = $faker->paragraph(1, true);
 
             $new_type->save();
         }

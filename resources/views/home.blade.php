@@ -6,7 +6,7 @@
 
     <h1>Home</h1>
 
-    <h2> <a href="{{ route('characters.index') }}">characters</a></h2>
+    <h2> <a href="{{ route('admin.characters.index') }}">characters</a></h2>
 
 </section>
     

@@ -17,7 +17,7 @@
                         <th scope="col">Nome</th>
                         <th scope="col">Classe</th>
                         <th scope="col" class="text-center">
-                            <button class="btn btn-sm btn-primary"><a class="text-decoration-none text-white" href="{{ route('characters.create') }}">Nuovo Personaggio</a></button>
+                            <button class="btn btn-sm btn-primary"><a class="text-decoration-none text-white" href="{{ route('admin.characters.create') }}">Nuovo Personaggio</a></button>
                         </th>
                         {{-- <th scope="col">Descrizione</th>
                         <th scope="col">Difesa</th>
@@ -40,7 +40,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Annulla</button>
-                                <form action="{{route('characters.destroy', $character->id)}}" method="POST">
+                                <form action="{{route('admin.characters.destroy', $character->id)}}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">Elimina</button>
@@ -56,9 +56,9 @@
                         <td>{{ isset($character->type) ? $character->type->name : '-' }}</td>
                         <td>
                             <div class="d-flex gap-3 justify-content-center">
-                                <button class="btn btn-sm btn-primary"><a class="text-decoration-none text-white" href="{{ route('characters.show', $character->id) }}">Dettagli</a></button>
+                                <button class="btn btn-sm btn-primary"><a class="text-decoration-none text-white" href="{{ route('admin.characters.show', $character->id) }}">Dettagli</a></button>
 
-                                <button class="btn btn-sm btn-warning"><a class="text-decoration-none text-white" href="{{ route('characters.edit', $character->id) }}">Modifica</a></button>
+                                <button class="btn btn-sm btn-warning"><a class="text-decoration-none text-white" href="{{ route('admin.characters.edit', $character->id) }}">Modifica</a></button>
 
                                 {{-- <form action="{{route('characters.destroy', $character->id)}}" method="POST">
                                     @csrf

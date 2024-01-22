@@ -16,12 +16,12 @@ class CharacterController extends Controller
         $characters = Character::all()->sortBy('level');
         $types = Type::all();
 
-        return view('characters.index', compact('characters', 'types'));
+        return view('admin.characters.index', compact('characters', 'types'));
     }
 
     public function show(Character $character)
     {
-        return view('character.show', compact('character'));
+        return view('admin.characters.show', compact('character'));
     }
 
     public function create()
@@ -29,7 +29,7 @@ class CharacterController extends Controller
         $types = Type::all();
         $items = Item::all();
 
-        return view('characters.create', compact('types', 'items'));
+        return view('admin.characters.create', compact('types', 'items'));
     }
 
     public function store(Request $request)
@@ -42,7 +42,7 @@ class CharacterController extends Controller
             $newCharacter->items()->attach($data['items']);
         };
 
-        return redirect()->route('characters.show', $newCharacter->id);
+        return redirect()->route('admin.characters.show', $newCharacter->id);
     }
 
     public function edit(Character $character)
@@ -51,7 +51,7 @@ class CharacterController extends Controller
         $types = Type::all();
         $items = Item::all();
 
-        return view('characters.edit', compact('character', 'types', 'items'));
+        return view('admin.characters.edit', compact('character', 'types', 'items'));
     }
 
     public function update(Request $request, Character $character)
@@ -65,7 +65,7 @@ class CharacterController extends Controller
             $character->items()->sync([]);
         };
 
-        return redirect()->route('characters.show', $character->id);
+        return redirect()->route('admin.characters.show', $character->id);
     }
 
     public function destroy(Character $character)
@@ -75,6 +75,6 @@ class CharacterController extends Controller
 
         $character->delete();
 
-        return redirect()->route('characters.index');
+        return redirect()->route('admin.characters.index');
     }
 }

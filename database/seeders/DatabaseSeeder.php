@@ -3,6 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Character;
+use App\Models\Item;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,9 +24,9 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
-            CharacterSeeder::class
             TypeSeeder::class,
             ItemSeeder::class,
+            CharacterSeeder::class,
         ]);
     }
 }

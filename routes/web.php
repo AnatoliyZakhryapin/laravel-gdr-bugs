@@ -17,12 +17,12 @@ use App\Models\Character;
 |
 */
 
-Route::get('{any?}', function () {
-    return view('joke');
-})->where('any', '.*');
+// Route::get('{any?}', function () {
+//     return view('joke');
+// })->where('any', '.*');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('admin.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -35,7 +35,10 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-Route::middleware(['auth', 'verified'])->prefix('/admin')->group(function () {
+Route::middleware(['auth', 'verified'])
+    ->name('admin.')
+    ->prefix('admin')
+    ->group(function () {
     Route::resource('characters', CharacterController::class);
 });
 
